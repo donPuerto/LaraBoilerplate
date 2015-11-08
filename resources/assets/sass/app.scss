@@ -1,2 +1,13 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+/*
+css code here
+
+*/
+
+
+.styleit{
+  -webkit-box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.75);
+}
