@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Mail;
+
 Route::get('/', function () {
     return view('home');
 });
@@ -24,3 +26,12 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::get('/mail', function(){
+
+   Mail::send('emails.test',['name' => 'Don Puerto'],function($message){
+      $message->to('don.puerto@hotmail.com')->subject('Welcome');
+   });
+
+});
