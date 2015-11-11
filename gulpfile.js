@@ -12,40 +12,41 @@ var elixir = require('laravel-elixir');
  */
 
 var paths = {
-    'bower_base_path': './vendor/bower_components/',
-    'bootstrap': './vendor/bower_components/bootstrap-sass/assets/'
+    'jquery': 'vendor/bower_components/jquery/dist/',
+    'bootstrap': 'vendor/bower_components/bootstrap-sass/assets/stylesheets/',
+    'bootstrapjs': 'vendor/bower_components/bootstrap-sass/assets/javascripts/',
+    'bootstrapfont': 'vendor/bower_components/bootstrap-sass/assets/fonts/bootstrap/',
+    'fontawesome': 'vendor/bower_components/font-awesome/css/',
+    'fontawesomefont': 'vendor/bower_components/font-awesome/fonts/'
 };
 
 elixir(function (mix) {
   /*copying files from vendor bower components*/
-    mix.copy(paths.bootstrap + 'stylesheets/', 'resources/assets/sass')
-        .copy(paths.bootstrap + 'fonts/bootstrap', 'public/fonts')
-        .copy(paths.bootstrap + 'javascripts/bootstrap.js', 'resources/assets/js/libs/bootstrap.js')
-        .copy(paths.bower_base_path + 'jquery/dist/jquery.min.js', 'resources/assets/js/libs/jquery.js')
-        .copy(paths.bower_base_path + 'font-awesome/css/font-awesome.min.css', 'resources/assets/css/font-awesome.css')
+    mix.copy(paths.bootstrap, 'resources/assets/sass')
+        .copy(paths.bootstrapjs +'bootstrap.js', 'resources/assets/js/libs')
+        .copy(paths.bootstrapfont, 'public/fonts')
+        .copy(paths.jquery+'jquery.min.js', 'resources/assets/js/libs')
+        .copy(paths.fontawesome+'font-awesome.css', 'resources/assets/css/libs')
+        .copy(paths.fontawesomefont, 'public/build/fonts')
 
-        /*fontawesome fonts*/
-        .copy(paths.bower_base_path + 'font-awesome/css/font-awesome.min.css', 'public/css/FontAwesome.otf')
-        .copy(paths.bower_base_path + 'font-awesome/css/font-awesome.min.css', 'public/css/fontawesome-webfont.eot')
-        .copy(paths.bower_base_path + 'font-awesome/css/font-awesome.min.css', 'public/cssfontawesome-webfont.svg')
-        .copy(paths.bower_base_path + 'font-awesome/css/font-awesome.min.css', 'public/css/fontawesome-webfont.ttf')
-        .copy(paths.bower_base_path + 'font-awesome/css/font-awesome.min.css', 'public/css/fontawesome-webfont.woff')
-        .copy(paths.bower_base_path + 'font-awesome/css/font-awesome.min.css', 'public/css/fontawesome-webfont.woff2')
-
+        /*sass compilation + added css libraries*/
         .sass([
             'app.scss',
-            './resources/assets/css/font-awesome.css',
-            './resources/assets/css/main.css'
+            '../css/libs/font-awesome.css',
+            '../css/libs/main.css'
         ],'public/css/app.css')
 
 
         /*unification of all js files*/
         .scripts([
-            "./resources/assets/js/libs/jquery.js",
+            "./resources/assets/js/libs/jquery.min.js",
             "./resources/assets/js/libs/bootstrap.js",
+
             /*addition js lib here*/
             './resources/assets/js/libs/main.js'
-        ], 'public/js/app.js', './')
+        ], 'public/js/app.js')
+
+
         /*file versioning*/
         .version([
             'css/app.css',

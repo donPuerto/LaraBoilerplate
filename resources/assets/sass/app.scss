@@ -1,8 +1,29 @@
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "bootstrap";
 
 
-/*CSS code here...*/
+body{
 
-body {
-  background-color: yellow;
+  background-color: #8BC34A;
+}
+
+/*Panel*/
+
+
+
+.panel{
+
+  margin: 20px;
+  border-top: solid 4px #1B5E20;
+  background-color: #C8E6C9;
+  border-radius: 0;
+
+}
+
+.panel-heading{
+
+  color: #4CAF50;
+  font-size: 50px;
+  height: 100px;
+  background-color: #C8E6C9;
 }
