@@ -15,7 +15,8 @@
     <meta name="author" content="Don Puerto">
     <meta name="description" content="Project Content">
     <meta name="keywords" content="keywords,here">
-    <link rel="stylesheet" href='/css/app.css'>
+    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+
     {{--@include('partials.stylessheets.bootstraplib')--}}
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -29,7 +30,10 @@
     {{--Extended Page--}}
     @yield('content')
 
-    {{--JQuery - Bootsrap JS library--}}
+    {{--
+    JQuery - Bootsrap JS library using partial script library
     @include('partials.scripts.jbootslib')
+    --}}
+    <script src="{{ elixir('js/app.js') }}"></script>
 </body>
 </html>
